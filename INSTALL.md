@@ -2,6 +2,10 @@
 
 ## 1. Install RTK
 
+> ⚠️ **Name collision warning:** Another project named "rtk" (Rust Type Kit) exists on crates.io.
+> If `rtk gain` fails after install, you have the wrong package.
+> Use `cargo install --git https://github.com/rtk-ai/rtk` (the `--git` flag) instead of `cargo install rtk`.
+
 ### macOS (Homebrew)
 ```bash
 brew install rtk
@@ -64,6 +68,6 @@ rtk init -g --agent windsurf
 ## 3. Verify
 
 ```bash
-rtk --version   # should show v0.34.x+
-rtk gain        # should show stats
+rtk --version   # should show a version (any v0.x)
+rtk gain        # should show stats — if error, you have the wrong rtk (see warning above)
 ```

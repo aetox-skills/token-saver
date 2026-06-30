@@ -2,7 +2,7 @@
 
 > **AI Agent Protocol:** Always prefix noise-producing bash commands with `rtk`.
 > Recovers full error output via tee files when commands fail.
-> **Saves 55-90%** of LLM tokens wasted on progress bars, passed test boilerplate, and long file listings.
+> **Saves 60-90%** of LLM tokens wasted on progress bars, passed test boilerplate, and long file listings.
 
 Token Saver is an AI agent skill that wraps [RTK](https://github.com/rtk-ai/rtk) (Rust Token Killer, 67k⭐) — a CLI proxy that intercepts bash commands and strips redundant output before it reaches the LLM context.
 
@@ -31,16 +31,14 @@ rtk npm install
 rtk pytest
 ```
 
-## Iron Rules
+## Quick Reference
 
 | Always `rtk` | Skip `rtk` |
 |---|---|
-| `git status/log/diff/add/commit/push` | `echo`, `cp`, `mv`, `mkdir`, `which` |
-| `pytest`, `cargo test`, `go test`, `jest` | `git diff` (code review) |
-| `npm/pnpm/pip install` | `Read`/`Glob`/`Grep` tools |
-| `find`, `docker`, `curl`, `json`, `tsc` | |
+| `git`, `pytest`, `cargo test`, `npm/pip install` | `echo`, `cp`, `mv`, `mkdir`, `which` |
+| `find`, `docker`, `curl`, `json`, `tsc` | `git diff` (code review) |
 
-If a filtered command fails → **read the tee file** for full output.
+Failure → **read the tee file**. See [`SKILL.md`](SKILL.md) for full protocol.
 
 ## Repo Structure
 
