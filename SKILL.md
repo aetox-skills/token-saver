@@ -1,11 +1,11 @@
 ---
-name: rtk
-description: RTK Protocol — Load this skill before running bash commands this session. CLI proxy that filters/strips command output before it reaches LLM context. Saves 60-90% tokens on git, test, install, lint, build, cloud, containers. Default-on: try rtk for any long-output command, not just the listed ones. Includes Tee Recovery Protocol for failures. Platform-agnostic.
+name: token-saver
+description: Token Saver (RTK Protocol) — Load this skill before running bash commands this session. CLI proxy that filters/strips command output before it reaches LLM context. Saves 60-90% tokens on git, test, install, lint, build, cloud, containers. Default-on: try rtk for any long-output command, not just the listed ones. Includes Tee Recovery Protocol for failures. Platform-agnostic.
 ---
 
 # ⚡ Token Saver — RTK Protocol
 
-> **AI Agent Protocol:** Load this skill (`skill("rtk")`) **before running any bash command** this session.
+> **AI Agent Protocol:** Load this skill (`skill("token-saver")`) **before running any bash command** this session.
 > **Default-on rule:** if a command produces long output, try `rtk` first. Only skip when output is known-trivial.
 > **Saves 60-90%** of tokens wasted on progress bars, passed test boilerplate, long file lists.
 
@@ -132,7 +132,7 @@ max_file_size = 1048576
 ## Agent Workflow
 
 ```
-Session start → load skill rtk
+Session start → load skill token-saver
          │
          ▼
 About to run bash command?
